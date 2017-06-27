@@ -1,0 +1,7 @@
+# This file is no longer used!!  Only the old UsersText class used it.
+# Users now uses a JDBC database.
+#
+#name:passwd:fullname:email:City:Prov:Country:privs
+iadmin:gorpless:JabaDot Administrator:ian@darwinsys.com:Toronto:ON:CA:A
+joe:joeless:Joe User:joe@erewhon.com:Anytown:CA:US:-
+ian:inforless:Ian Darwin:ian@darwinsys.com:Toronto:ON:Canada:E

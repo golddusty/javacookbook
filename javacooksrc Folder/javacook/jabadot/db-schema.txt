@@ -1,0 +1,17 @@
+                Table "users"
+ Attribute |         Type          | Modifier
+-----------+-----------------------+----------
+ name      | character(12)         | not null
+ password  | character(20)         |
+ firstname | character varying(30) |
+ lastname  | character varying(30) |
+ email     | character varying(60) |
+ city      | character varying(20) |
+ prov      | character varying(20) |
+ country   | character varying(20) |
+ creation  | date                  |
+ lastlogin | date                  |
+ editpriv  | boolean               |
+ adminpriv | boolean               |
+Index: users_pkey
+

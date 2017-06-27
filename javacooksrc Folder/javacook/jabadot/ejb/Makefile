@@ -1,0 +1,2 @@
+all:
+	jikes -d . *.java

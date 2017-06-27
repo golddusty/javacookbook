@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC 
+	"-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN"
+	"http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd"
+>
+
+<!-- Deployment Descriptor for the EJB(s) used in JabaDot.
+  ** User - Entity - describes one user of the system.
+  XX Article - news article
+  -->
+
+<ejb-jar>
+	<enterprise-beans>
+		<entity>
+			<display-name>User EJB</display-name>
+			<ejb-name>User</ejb-name>
+			<home>UserHome</home>
+			<remote>UserRemote</remote>
+			<ejb-class>UserBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<cmp-version>2.x</cmp-version>
+			<abstract-schema-name>User</abstract-schema-name>
+			<prim-key-field>name</prim-key-field>
+			<prim-key-class>java.lang.String</prim-key-class>
+
+			<cmp-field><field-name>name </field-name></cmp-field>
+			<cmp-field><field-name>password </field-name></cmp-field>
+			<cmp-field><field-name>fullName </field-name></cmp-field>
+			<cmp-field><field-name>email </field-name></cmp-field>
+			<cmp-field><field-name>city </field-name></cmp-field>
+			<cmp-field><field-name>province </field-name></cmp-field>
+			<cmp-field><field-name>country </field-name></cmp-field>
+			<cmp-field><field-name>skin </field-name></cmp-field>
+			<cmp-field><field-name>creationDate </field-name></cmp-field>
+			<cmp-field><field-name>lastLoginDate </field-name></cmp-field>
+			<cmp-field><field-name>editPrivs </field-name></cmp-field>
+			<cmp-field><field-name>adminPrivs </field-name></cmp-field>
+
+			<query>
+				<query-method>
+					<method-name>findAllUsers</method-name>
+					<method-params />
+				</query-method>
+				<ejb-ql>
+					select u from Users as u
+				</ejb-ql>
+			</query>
+		</entity>
+	</enterprise-beans>
+
+	<!-- Relationships. None at present(only one bean!?) -->
+	<relationships>
+	</relationships>
+
+	<!-- Assembly: transactions, mostly -->
+	<assembly-descriptor>
+		<container-transaction>
+			<method>
+				<ejb-name>User</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>*</method-name>
+			</method>
+			<trans-attribute>Required</trans-attribute>
+		</container-transaction>
+	</assembly-descriptor>
+</ejb-jar>
